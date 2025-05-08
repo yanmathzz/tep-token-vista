@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -70,6 +69,7 @@ const TokenDetailChart: React.FC<TokenDetailChartProps> = ({
       const volume = Math.round(50000 + Math.random() * 100000);
       data.push({
         name: `${i + 1}${interval}`,
+        price: 0, // Adding price property with default value
         volume
       });
     }
