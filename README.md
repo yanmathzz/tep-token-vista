@@ -1,37 +1,59 @@
-# TEP – Tokenização Empresarial Paraense
+# 🪙 TEP – Tokenização Empresarial Paraense
 
-**TEP** é uma plataforma web para investimentos por meio da tokenização de empresas locais do Pará. O objetivo é utilizar tecnologia para aproximar investidores de negócios regionais, oferecendo transparência, inovação e dados financeiros claros por meio de dashboards interativos.
+**TEP** é uma plataforma de investimentos baseada em tokenização de empresas locais do estado do Pará. Por meio de dashboards interativos e dados financeiros acessíveis, a proposta visa impulsionar o desenvolvimento regional através da transformação digital e inclusão de pequenos e médios negócios no mercado de ativos digitais.
 
-## 🌍 Visão Geral
+---
 
-A aplicação apresenta:
+## 🎯 Objetivos do Projeto
 
-- Listagem de empresas participantes;
-- Tokens associados a cada empresa;
-- Dashboards com gráficos de receitas, lucros e indicadores financeiros;
-- Área de acesso restrito para as empresas acompanharem seus dados em tempo real.
+- Promover a tokenização de empresas paraenses, permitindo que investidores adquiram frações digitais de seus negócios;
+- Facilitar o acesso de empresas locais ao mercado de investimentos com transparência e tecnologia;
+- Oferecer visualizações gráficas e atualizadas sobre o desempenho financeiro dos tokens;
+- Conectar investidores e empreendedores em um ambiente seguro e intuitivo.
 
-## 🚀 Tecnologias Utilizadas
+---
 
-- [Vite](https://vitejs.dev/) – Build tool moderna e rápida
-- [React](https://reactjs.org/) – Biblioteca JavaScript para construção de interfaces
-- [TypeScript](https://www.typescriptlang.org/) – Tipagem estática em tempo de desenvolvimento
-- [Tailwind CSS](https://tailwindcss.com/) – Estilização com classes utilitárias
-- [shadcn/ui](https://ui.shadcn.com/) – Componentes modernos e acessíveis
+## 🌟 Diferenciais da Proposta
 
-## 🛠️ Como Executar Localmente
+- **Foco Regional**: valorização das empresas locais da região Norte do Brasil;
+- **Dashboard Interativo**: visualização de dados financeiros em tempo real com gráficos de lucros, receitas e performance dos tokens;
+- **Acesso Empresarial**: cada empresa tem uma área privada para acompanhar seu token;
+- **Design Moderno e Intuitivo**: inspirado em plataformas de fintechs e investimentos;
+- **Preparado para Blockchain**: arquitetura pensada para integração futura com carteiras digitais e smart contracts.
 
-Siga os passos abaixo para rodar o projeto em sua máquina:
+---
 
-```bash
-# Clone o repositório
-git clone https://github.com/seu-usuario/tep-tokenizacao.git
+## 🖼️ Telas do Produto
 
-# Acesse a pasta do projeto
-cd tep-tokenizacao
+### 🔍 Página Inicial – Listagem de Empresas
+> Exibe todas as empresas participantes com seus respectivos tokens.
 
-# Instale as dependências
-npm install
+![Home - Listagem](./public/images/home.png)
 
-# Inicie o servidor de desenvolvimento
-npm run dev
+---
+
+### 📊 Dashboard da Empresa
+> Gráficos de desempenho, histórico de lucros, e análise dos tokens.
+
+![Dashboard da Empresa](./public/images/dashboard.png)
+
+---
+
+### 🔐 Área da Empresa
+> Área restrita com controle de informações e relatórios.
+
+![Área Restrita](./public/images/empresa.png)
+
+---
+
+## 📬 Contato dos Integrantes
+
+**Yan Matheus**  
+Desenvolvedor Full Stack | Eng. de Computação  
+- ✉️ E-mail: yanmathzz@gmail.com  
+- 💼 LinkedIn: [linkedin.com/in/yanmatheus](https://www.linkedin.com/in/yanmatheus)  
+- 💻 GitHub: [github.com/yanmathzz](https://github.com/yanmathzz)  
+
+---
+
+> Projeto em desenvolvimento contínuo. Em breve novas funcionalidades, integração blockchain e área do investidor.
