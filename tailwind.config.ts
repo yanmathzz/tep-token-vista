@@ -64,6 +64,7 @@ export default {
           positive: '#22c55e',
           negative: '#ef4444',
           neutral: '#6b7280',
+          background: '#0D0D59',  // Added new TEP background color
         }
       },
       borderRadius: {
