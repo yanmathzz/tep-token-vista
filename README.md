@@ -48,13 +48,24 @@ Ambiente para as empresas gerenciarem seus dados financeiros e visualizarem rela
 
 ---
 
-## 📬 Contato dos Integrantes
+## 👥 Equipe do Projeto
 
-**Yan Matheus**  
-Desenvolvedor Full Stack | Engenheiro de Computação  
-- 📧 E-mail: yanmathzz@gmail.com  
-- 💼 LinkedIn: [linkedin.com/in/yanmatheus](https://www.linkedin.com/in/yanmatheus)  
-- 💻 GitHub: [github.com/yanmathzz](https://github.com/yanmathzz)
+### 💻 Desenvolvimento Front-End
+- **Yan Matheus** – yanmathzz@gmail.com – [LinkedIn](https://www.linkedin.com/in/yanmatheus)  
+- **Pedro Henrique Carneiro Silva**
+
+### 🛠️ Desenvolvimento Back-End
+- **Luís Cláudio Rodrigues Sarmento**
+- **Lívio Marcel Monteiro Cambraia**
+
+### 🎨 Design de Interface e Experiência do Usuário
+- **Julia Furtado Affonso**
+- **Beatriz Souza Brasileiro**
+- **Ana Letícia Sousa Verde**
+
+### 🤝 Negociação e Relação com Empresas
+- **João Pedro Barreiros Baganha**
+- **Renato Xavier Portela Giordano**
 
 ---
 
