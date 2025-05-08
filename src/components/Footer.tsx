@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -9,7 +8,7 @@ const Footer = () => {
         <div className="space-y-4 max-w-md">
           <div className="flex items-start gap-2">
             <img 
-              src="/lovable-uploads/8a3288d4-fab4-45e4-9079-8f136689dadd.png" 
+              src="/lovable-uploads/cc33767b-d4b9-4ceb-81c9-7db2af277e19.png" 
               alt="TEP Logo" 
               className="h-8" 
             />
