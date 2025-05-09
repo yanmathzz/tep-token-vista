@@ -4,8 +4,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TokenCard from "@/components/TokenCard";
 import CompanyCard from "@/components/CompanyCard";
-import { getAllTokens } from "@/data/tokens";
-import { getAllCompanies } from "@/data/tokens";
+import { getAllTokens, getAllCompanies } from "@/data/tokens";
 import Footer from "@/components/Footer";
 import { butecoCompany, cachaçaToken } from "@/data/butecoCompany";
 
@@ -31,7 +30,7 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {allTokens.map((token) => (
-              <TokenCard key={token.id} token={token} featured={token.id === 'cachaca-de-jambu'} />
+              <TokenCard key={token.id} token={token} />
             ))}
           </div>
           

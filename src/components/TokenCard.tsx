@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
@@ -28,9 +29,9 @@ interface TokenCardProps {
 
 const TokenCard: React.FC<TokenCardProps> = ({ token }) => {
   const isPositive = token.priceChange >= 0;
-
+  
   return (
-    <Card className="overflow-hidden border-border/40 h-full transition-all hover:border-border hover:shadow-md">
+    <Card className={`overflow-hidden border-border/40 h-full transition-all hover:border-border hover:shadow-md ${token.featured ? 'border-2 border-tep-positive' : ''}`}>
       <CardContent className="p-6">
         <div className="flex justify-between mb-4">
           <div>
@@ -39,6 +40,11 @@ const TokenCard: React.FC<TokenCardProps> = ({ token }) => {
               <Badge variant="outline" className="text-xs">
                 {token.symbol}
               </Badge>
+              {token.featured && (
+                <Badge variant="default" className="text-xs bg-tep-positive">
+                  Destaque
+                </Badge>
+              )}
             </div>
             <div className="flex items-center">
               <span className="text-sm text-muted-foreground">

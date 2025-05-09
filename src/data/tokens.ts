@@ -79,6 +79,7 @@ export const tokens: TokenData[] = [
     revenue: 42000,
     description: "Token do açaí premium congelado, com processos sustentáveis de colheita e distribuição internacional.",
     chartData: generateChartData(20, true),
+    featured: false
   },
   {
     id: "acai-polpa",
@@ -93,6 +94,7 @@ export const tokens: TokenData[] = [
     revenue: 36500,
     description: "Token representando a produção de polpa de açaí processada para mercado nacional e exportação.",
     chartData: generateChartData(20, true),
+    featured: false
   },
   {
     id: "madeira-certificada",
@@ -107,6 +109,7 @@ export const tokens: TokenData[] = [
     revenue: 28500,
     description: "Token de madeira certificada com rastreabilidade completa e reflorestamento garantido.",
     chartData: generateChartData(20, false),
+    featured: false
   },
   {
     id: "pacotes-turisticos",
@@ -121,6 +124,7 @@ export const tokens: TokenData[] = [
     revenue: 67500,
     description: "Token que representa pacotes de experiências turísticas sustentáveis na Amazônia paraense.",
     chartData: generateChartData(20, true),
+    featured: false
   },
   {
     id: "minerio-ferro",
@@ -135,6 +139,7 @@ export const tokens: TokenData[] = [
     revenue: 125000,
     description: "Token de participação na produção de minério de ferro extraído com tecnologias de baixo impacto.",
     chartData: generateChartData(20, true),
+    featured: false
   },
   {
     id: "oleo-essencial",
@@ -149,8 +154,13 @@ export const tokens: TokenData[] = [
     revenue: 52800,
     description: "Token representando a produção de óleos essenciais extraídos de plantas da biodiversidade amazônica.",
     chartData: generateChartData(20, false),
+    featured: false
   }
 ];
+
+// Add functions to get data
+export const getAllTokens = () => tokens;
+export const getAllCompanies = () => companies;
 
 export const getTokenById = (id: string): TokenData | undefined => {
   return tokens.find(token => token.id === id);

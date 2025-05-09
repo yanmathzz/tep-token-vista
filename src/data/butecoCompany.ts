@@ -1,5 +1,6 @@
 
-import { CompanyData, TokenData } from './tokens';
+import { CompanyData } from './tokens';
+import { TokenData } from '@/components/TokenCard';
 
 export const butecoCompany: CompanyData = {
   id: 'buteco-meu-garoto',
@@ -21,7 +22,8 @@ export const cachaçaToken: TokenData = {
   revenue: 450000,
   companyId: 'buteco-meu-garoto',
   companyName: 'Buteco Meu Garoto',
-  image: '/placeholder.svg'
+  chartData: Array(20).fill(0).map((_, i) => ({ value: 100 + Math.random() * 20 })),
+  featured: true
 };
 
 // Function to inject the Buteco company data into the existing data from tokens.ts
