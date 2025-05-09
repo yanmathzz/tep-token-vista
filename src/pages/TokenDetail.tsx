@@ -4,13 +4,16 @@ import { useParams, Navigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TokenDetailChart from "@/components/TokenDetailChart";
-import TokenChat from "@/components/TokenChat";
+import TokenHistoryTable from "@/components/TokenHistoryTable";
+import CompanyUpdates from "@/components/CompanyUpdates";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { getTokenById } from "@/data/tokens";
-import { ArrowUp, ArrowDown } from "lucide-react";
+import { ArrowUp, ArrowDown, Info } from "lucide-react";
+import CompanyFinancials from "@/components/CompanyFinancials";
+import TokenMetrics from "@/components/TokenMetrics";
 
 const TokenDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -47,67 +50,36 @@ const TokenDetail = () => {
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-            <div className="lg:col-span-2">
+            {/* Left Column - Charts */}
+            <div className="lg:col-span-2 space-y-6">
+              {/* Price Chart */}
               <TokenDetailChart 
                 tokenName={token.name} 
                 tokenSymbol={token.symbol} 
                 price={token.price}
                 priceChange={token.priceChange}
               />
-            </div>
-            <div>
-              <Card className="mb-6">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-xl">Informações</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Preço</span>
-                      <span className="font-medium">R$ {token.price.toFixed(2)}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Variação 24h</span>
-                      <span
-                        className={`flex items-center gap-1 ${
-                          isPositive ? "text-tep-positive" : "text-tep-negative"
-                        }`}
-                      >
-                        {isPositive ? (
-                          <ArrowUp className="h-4 w-4" />
-                        ) : (
-                          <ArrowDown className="h-4 w-4" />
-                        )}
-                        {Math.abs(token.priceChange).toFixed(2)}%
-                      </span>
-                    </div>
-                    <Separator />
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Volume 24h</span>
-                      <span className="font-medium">
-                        R$ {token.volume.toLocaleString()}
-                      </span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">ROI 30 dias</span>
-                      <span
-                        className={
-                          token.roi >= 0 ? "text-tep-positive" : "text-tep-negative"
-                        }
-                      >
-                        {token.roi.toFixed(2)}%
-                      </span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Receita Mensal</span>
-                      <span className="font-medium">
-                        R$ {token.revenue.toLocaleString()}
-                      </span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
               
+              {/* Financial Charts */}
+              <CompanyFinancials 
+                tokenName={token.name}
+                revenue={token.revenue}
+                profit={token.revenue * 0.3} // Mocked profit as 30% of revenue
+              />
+            </div>
+            
+            {/* Right Column - Info */}
+            <div className="space-y-6">
+              {/* Key Metrics */}
+              <TokenMetrics 
+                price={token.price}
+                priceChange={token.priceChange}
+                volume={token.volume}
+                roi={token.roi}
+                revenue={token.revenue}
+              />
+              
+              {/* About Company */}
               <Card>
                 <CardHeader className="pb-3">
                   <CardTitle className="text-xl">Sobre {token.name}</CardTitle>
@@ -118,6 +90,9 @@ const TokenDetail = () => {
                   </p>
                   <p className="text-sm text-muted-foreground mb-4">
                     A empresa utiliza tecnologia blockchain para tokenizar seus ativos, permitindo que investidores participem do crescimento do negócio de forma transparente e segura.
+                  </p>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Os tokens {token.symbol} representam uma parte do valor da empresa e seus detentores têm direitos sobre uma parcela proporcional dos lucros gerados pela operação.
                   </p>
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Website</span>
@@ -130,8 +105,14 @@ const TokenDetail = () => {
             </div>
           </div>
           
+          {/* Token Movement History */}
           <div className="mb-8">
-            <TokenChat tokenName={token.name} />
+            <TokenHistoryTable tokenSymbol={token.symbol} />
+          </div>
+          
+          {/* Latest Updates */}
+          <div className="mb-8">
+            <CompanyUpdates tokenName={token.name} />
           </div>
         </div>
       </main>
