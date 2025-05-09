@@ -14,16 +14,22 @@ import { getTokenById } from "@/data/tokens";
 import { ArrowUp, ArrowDown, Info } from "lucide-react";
 import CompanyFinancials from "@/components/CompanyFinancials";
 import TokenMetrics from "@/components/TokenMetrics";
+import { cachaçaToken } from "@/data/butecoCompany";
 
 const TokenDetail = () => {
   const { id } = useParams<{ id: string }>();
-  const token = id ? getTokenById(id) : undefined;
+  
+  // Check if the token is Cachaça de Jambu, otherwise use the regular token data
+  const token = id === 'cachaca-de-jambu' 
+    ? cachaçaToken 
+    : id ? getTokenById(id) : undefined;
 
   if (!token) {
     return <Navigate to="/404" />;
   }
 
   const isPositive = token.priceChange >= 0;
+  const isJambu = id === 'cachaca-de-jambu';
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -44,7 +50,7 @@ const TokenDetail = () => {
                   {token.symbol}
                 </Badge>
               </h1>
-              <p className="text-muted-foreground">{token.description}</p>
+              <p className="text-muted-foreground">{token.description.substring(0, 100)}...</p>
             </div>
             <div className="flex items-center gap-2">
               <Button variant="outline" size="sm">
@@ -90,9 +96,30 @@ const TokenDetail = () => {
                   <CardTitle className="text-xl">Sobre {token.name}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {token.description}
-                  </p>
+                  {isJambu ? (
+                    <>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        A Cachaça de Jambu é uma bebida artesanal única, produzida pelo Buteco Meu Garoto
+                        utilizando técnicas tradicionais combinadas com inovação. O jambu, planta típica da
+                        região amazônica, confere à cachaça uma experiência sensorial única com seu efeito
+                        "dormência" característico.
+                      </p>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Nosso processo de produção valoriza os produtores locais de jambu e cana-de-açúcar,
+                        gerando impacto positivo na economia da região. Cada garrafa é numerada e rastreável
+                        via blockchain, garantindo autenticidade e transparência.
+                      </p>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        A tokenização desta cachaça permite que investidores participem do crescimento deste
+                        produto premium, que já conquistou prêmios nacionais e tem expandido sua presença
+                        para o mercado internacional.
+                      </p>
+                    </>
+                  ) : (
+                    <p className="text-sm text-muted-foreground mb-4">
+                      {token.description}
+                    </p>
+                  )}
                   <p className="text-sm text-muted-foreground mb-4">
                     Este produto é desenvolvido pela <Link to={`/company/${token.companyId}`} className="text-blue-400 hover:underline">{token.companyName}</Link> e utiliza blockchain para tokenizar seus ativos, permitindo que investidores participem do crescimento do produto de forma transparente e segura.
                   </p>

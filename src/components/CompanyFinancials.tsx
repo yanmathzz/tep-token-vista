@@ -88,7 +88,7 @@ const CompanyFinancials: React.FC<CompanyFinancialsProps> = ({ tokenName, revenu
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               data={data}
-              margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+              margin={{ top: 20, right: 30, left: 40, bottom: 20 }}
             >
               <CartesianGrid strokeDasharray="3 3" stroke="#383838" />
               <XAxis 
@@ -104,6 +104,7 @@ const CompanyFinancials: React.FC<CompanyFinancialsProps> = ({ tokenName, revenu
                 tick={{ fill: "#a3a3a3" }}
                 tickLine={{ stroke: "#525252" }}
                 axisLine={{ stroke: "#525252" }}
+                width={80}
               />
               <Tooltip 
                 formatter={(value: any) => [`R$ ${Number(value).toLocaleString()}`, ""]}
@@ -115,6 +116,7 @@ const CompanyFinancials: React.FC<CompanyFinancialsProps> = ({ tokenName, revenu
               />
               <Legend 
                 formatter={(value) => <span className="text-sm">{value === "receita" ? "Receita" : "Lucro Líquido"}</span>}
+                wrapperStyle={{paddingTop: 10}}
               />
               <Bar 
                 yAxisId="left"

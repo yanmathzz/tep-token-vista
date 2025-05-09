@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
@@ -20,6 +19,7 @@ export interface TokenData {
   revenue: number;
   description: string;
   chartData: { value: number }[];
+  featured: boolean;
 }
 
 interface TokenCardProps {

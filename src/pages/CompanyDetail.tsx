@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -9,11 +9,20 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { getCompanyById, getTokensByCompanyId } from "@/data/tokens";
+import { butecoCompany, cachaçaToken } from "@/data/butecoCompany";
 
 const CompanyDetail = () => {
   const { id } = useParams<{ id: string }>();
-  const company = id ? getCompanyById(id) : undefined;
-  const companyTokens = id ? getTokensByCompanyId(id) : [];
+  
+  // Check if the id is for Buteco Meu Garoto and use that data
+  const company = id === 'buteco-meu-garoto' 
+    ? butecoCompany 
+    : id ? getCompanyById(id) : undefined;
+  
+  // For Buteco company, use the cachaça token
+  const companyTokens = id === 'buteco-meu-garoto' 
+    ? [cachaçaToken]
+    : id ? getTokensByCompanyId(id) : [];
 
   if (!company) {
     return <Navigate to="/404" />;
@@ -49,20 +58,39 @@ const CompanyDetail = () => {
                   <CardTitle>Sobre a Empresa</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {company.name} é uma empresa paraense comprometida com o desenvolvimento sustentável
-                    da região amazônica. Através da tokenização de seus produtos, a empresa busca democratizar
-                    o acesso a investimentos e fortalecer a cadeia produtiva local.
-                  </p>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Com processos produtivos que respeitam a biodiversidade local e valorizam o conhecimento
-                    tradicional, a empresa se destaca pela inovação e compromisso com práticas ESG.
-                  </p>
+                  {id === 'buteco-meu-garoto' ? (
+                    <>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Buteco Meu Garoto é uma empresa genuinamente paraense, fundada em 2015 no coração de Belém.
+                        O que começou como um pequeno bar de bairro se transformou em uma referência cultural
+                        na produção de bebidas artesanais que celebram os sabores da Amazônia.
+                      </p>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Nossa missão é valorizar as tradições e produtos regionais, criando conexões
+                        entre consumidores e a rica biodiversidade amazônica. Cada produto que desenvolvemos
+                        conta uma história e contribui para o fortalecimento da economia local.
+                      </p>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        A tokenização da nossa cachaça de jambu representa um passo inovador para abrir
+                        o acesso a investimentos em produtos regionais de alta qualidade, democratizando 
+                        o mercado e permitindo que mais pessoas possam se beneficiar do crescimento
+                        dos negócios da Amazônia.
+                      </p>
+                    </>
+                  ) : (
+                    <p className="text-sm text-muted-foreground mb-4">
+                      {company.name} é uma empresa paraense comprometida com o desenvolvimento sustentável
+                      da região amazônica. Através da tokenização de seus produtos, a empresa busca democratizar
+                      o acesso a investimentos e fortalecer a cadeia produtiva local.
+                    </p>
+                  )}
                   
                   <div className="grid grid-cols-2 gap-4 mt-6">
                     <div>
                       <h4 className="font-medium mb-1">Fundação</h4>
-                      <p className="text-sm text-muted-foreground">2015</p>
+                      <p className="text-sm text-muted-foreground">
+                        {id === 'buteco-meu-garoto' ? '2015' : '2020'}
+                      </p>
                     </div>
                     <div>
                       <h4 className="font-medium mb-1">Sede</h4>

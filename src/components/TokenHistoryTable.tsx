@@ -78,8 +78,8 @@ const TokenHistoryTable: React.FC<TokenHistoryTableProps> = ({ tokenSymbol }) =>
                 <TableHead className="w-[100px]">Tipo</TableHead>
                 <TableHead className="w-[150px]">Quantidade</TableHead>
                 <TableHead className="w-[150px]">Preço</TableHead>
-                <TableHead className="w-[180px] hidden md:table-cell">Data</TableHead>
-                <TableHead className="hidden md:table-cell">Carteira</TableHead>
+                <TableHead className="w-[180px]">Data</TableHead>
+                <TableHead>Carteira</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -92,8 +92,8 @@ const TokenHistoryTable: React.FC<TokenHistoryTableProps> = ({ tokenSymbol }) =>
                   </TableCell>
                   <TableCell className="font-medium">{transaction.amount} {tokenSymbol}</TableCell>
                   <TableCell>R$ {transaction.price.toFixed(2)}</TableCell>
-                  <TableCell className="hidden md:table-cell">{formatDate(transaction.date)}</TableCell>
-                  <TableCell className="hidden md:table-cell">{transaction.wallet}</TableCell>
+                  <TableCell>{formatDate(transaction.date)}</TableCell>
+                  <TableCell>{transaction.wallet}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
