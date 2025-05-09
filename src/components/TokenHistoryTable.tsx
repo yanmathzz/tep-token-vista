@@ -66,37 +66,39 @@ const TokenHistoryTable: React.FC<TokenHistoryTableProps> = ({ tokenSymbol }) =>
   };
   
   return (
-    <Card>
+    <Card className="w-full">
       <CardHeader>
         <CardTitle className="text-xl">Histórico de Transações {tokenSymbol}</CardTitle>
       </CardHeader>
       <CardContent>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Tipo</TableHead>
-              <TableHead>Quantidade</TableHead>
-              <TableHead>Preço</TableHead>
-              <TableHead className="hidden md:table-cell">Data</TableHead>
-              <TableHead className="hidden md:table-cell">Carteira</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {transactions.map(transaction => (
-              <TableRow key={transaction.id}>
-                <TableCell>
-                  <Badge variant={transaction.type === "buy" ? "default" : "destructive"}>
-                    {transaction.type === "buy" ? "Compra" : "Venda"}
-                  </Badge>
-                </TableCell>
-                <TableCell className="font-medium">{transaction.amount} {tokenSymbol}</TableCell>
-                <TableCell>R$ {transaction.price.toFixed(2)}</TableCell>
-                <TableCell className="hidden md:table-cell">{formatDate(transaction.date)}</TableCell>
-                <TableCell className="hidden md:table-cell">{transaction.wallet}</TableCell>
+        <div className="overflow-x-auto">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="w-[100px]">Tipo</TableHead>
+                <TableHead className="w-[150px]">Quantidade</TableHead>
+                <TableHead className="w-[150px]">Preço</TableHead>
+                <TableHead className="w-[180px] hidden md:table-cell">Data</TableHead>
+                <TableHead className="hidden md:table-cell">Carteira</TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHeader>
+            <TableBody>
+              {transactions.map(transaction => (
+                <TableRow key={transaction.id}>
+                  <TableCell>
+                    <Badge variant={transaction.type === "buy" ? "default" : "destructive"}>
+                      {transaction.type === "buy" ? "Compra" : "Venda"}
+                    </Badge>
+                  </TableCell>
+                  <TableCell className="font-medium">{transaction.amount} {tokenSymbol}</TableCell>
+                  <TableCell>R$ {transaction.price.toFixed(2)}</TableCell>
+                  <TableCell className="hidden md:table-cell">{formatDate(transaction.date)}</TableCell>
+                  <TableCell className="hidden md:table-cell">{transaction.wallet}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
       </CardContent>
     </Card>
   );

@@ -1,7 +1,6 @@
 
 import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import {
   BarChart,
   Bar,
@@ -64,7 +63,7 @@ const CompanyFinancials: React.FC<CompanyFinancialsProps> = ({ tokenName, revenu
   };
   
   return (
-    <Card>
+    <Card className="w-full">
       <CardHeader className="pb-3">
         <div className="flex justify-between items-center">
           <CardTitle className="text-xl">Desempenho Financeiro</CardTitle>
@@ -85,7 +84,7 @@ const CompanyFinancials: React.FC<CompanyFinancialsProps> = ({ tokenName, revenu
         </div>
       </CardHeader>
       <CardContent>
-        <div className="h-[350px]">
+        <div className="h-[350px] w-full">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               data={data}
