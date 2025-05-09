@@ -11,6 +11,8 @@ export interface TokenData {
   id: string;
   name: string;
   symbol: string;
+  companyId: string;
+  companyName: string;
   price: number;
   priceChange: number;
   volume: number;
@@ -38,7 +40,12 @@ const TokenCard: React.FC<TokenCardProps> = ({ token }) => {
                 {token.symbol}
               </Badge>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center">
+              <span className="text-sm text-muted-foreground">
+                {token.companyName}
+              </span>
+            </div>
+            <div className="flex items-center gap-2 mt-2">
               <span className="text-2xl font-bold">
                 R$ {token.price.toFixed(2)}
               </span>

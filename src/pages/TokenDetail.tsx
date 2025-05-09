@@ -1,6 +1,6 @@
 
 import React from "react";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, Navigate, Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TokenDetailChart from "@/components/TokenDetailChart";
@@ -33,6 +33,11 @@ const TokenDetail = () => {
         <div className="container">
           <div className="flex flex-col md:flex-row justify-between items-start mb-8 gap-4">
             <div>
+              <div className="flex items-center gap-2 mb-1">
+                <Link to={`/company/${token.companyId}`} className="text-sm text-muted-foreground hover:underline">
+                  {token.companyName}
+                </Link>
+              </div>
               <h1 className="text-3xl font-bold tracking-tight mb-1 flex items-center gap-2">
                 {token.name}
                 <Badge variant="outline" className="text-sm">
@@ -79,7 +84,7 @@ const TokenDetail = () => {
                 revenue={token.revenue}
               />
               
-              {/* About Company */}
+              {/* About Product */}
               <Card>
                 <CardHeader className="pb-3">
                   <CardTitle className="text-xl">Sobre {token.name}</CardTitle>
@@ -89,10 +94,10 @@ const TokenDetail = () => {
                     {token.description}
                   </p>
                   <p className="text-sm text-muted-foreground mb-4">
-                    A empresa utiliza tecnologia blockchain para tokenizar seus ativos, permitindo que investidores participem do crescimento do negócio de forma transparente e segura.
+                    Este produto é desenvolvido pela <Link to={`/company/${token.companyId}`} className="text-blue-400 hover:underline">{token.companyName}</Link> e utiliza blockchain para tokenizar seus ativos, permitindo que investidores participem do crescimento do produto de forma transparente e segura.
                   </p>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Os tokens {token.symbol} representam uma parte do valor da empresa e seus detentores têm direitos sobre uma parcela proporcional dos lucros gerados pela operação.
+                    Os tokens {token.symbol} representam uma parte do valor do produto e seus detentores têm direitos sobre uma parcela proporcional dos lucros gerados pela comercialização.
                   </p>
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Website</span>
@@ -112,7 +117,7 @@ const TokenDetail = () => {
           
           {/* Latest Updates */}
           <div className="mb-8">
-            <CompanyUpdates tokenName={token.name} />
+            <CompanyUpdates tokenName={token.companyName} />
           </div>
         </div>
       </main>
